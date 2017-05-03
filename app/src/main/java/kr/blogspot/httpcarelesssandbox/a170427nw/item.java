@@ -23,7 +23,7 @@ public class item extends LinearLayout {
     public void init(Context context){
         View view=LayoutInflater.from(context).inflate(R.layout.spineritem,null);
 
-       tv=(TextView)findViewById(R.id.text);
+        tv=(TextView)findViewById(R.id.text);
         im=(ImageView)findViewById(R.id.image);
     }
 
@@ -31,6 +31,5 @@ public class item extends LinearLayout {
         tv.setText(fruit.name);
         im.setImageResource(fruit.imgno);
     }
-
 
 }

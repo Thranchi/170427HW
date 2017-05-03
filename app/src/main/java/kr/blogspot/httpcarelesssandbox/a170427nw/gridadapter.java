@@ -6,11 +6,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -21,6 +23,7 @@ import java.util.ArrayList;
 public class gridadapter extends BaseAdapter {
     ArrayList<fruit> fruit;
     Context context;
+    boolean costable=false;
 
 
     public gridadapter(ArrayList<fruit> fruit, Context context){
@@ -35,25 +38,47 @@ public class gridadapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return fruit.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return position ;
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         if(convertView==null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.griditem,null);
         }
 
-        final TextView tv=(TextView)convertView.findViewById(R.id.text2);
-        final ImageView im=(ImageView) convertView.findViewById(R.id.image);
-        tv.setText(fruit.get(position).name);
+        final TextView name=(TextView)convertView.findViewById(R.id.name);
+        final TextView cost=(TextView)convertView.findViewById(R.id.cost);
+        final ImageView im=(ImageView) convertView.findViewById(R.id.fruitimage);
+
+        if(costable)
+        {
+            cost.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            cost.setVisibility(View.INVISIBLE);
+        }
+
+        name.setText(fruit.get(position).name);
+        cost.setText(fruit.get(position).cost);
         im.setImageResource(fruit.get(position).imgno);
+
+        name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name=fruit.get(position).name;
+                String cost=fruit.get(position).cost;
+            }
+        });
+
         return convertView;
+
        /* if(convertView == null)
             convertView=new item(context);
 
@@ -61,6 +86,7 @@ public class gridadapter extends BaseAdapter {
         return convertView;*/
 
     }
+
 
     public void addFruit(fruit fruit) {
         this.fruit.add(fruit);

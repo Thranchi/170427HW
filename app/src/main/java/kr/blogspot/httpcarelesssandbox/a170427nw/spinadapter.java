@@ -46,7 +46,7 @@ public class spinadapter extends BaseAdapter {
         }
 
         final TextView tv=(TextView)convertView.findViewById(R.id.text);
-        final CheckBox cb=(CheckBox) convertView.findViewById(R.id.checkbox);
+        final CheckBox cb=(CheckBox)convertView.findViewById(R.id.checkbox);
         tv.setText(fruit[position]);
         cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

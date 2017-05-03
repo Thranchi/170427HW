@@ -7,6 +7,13 @@
     android:layout_height="match_parent"
     tools:context="kr.blogspot.httpcarelesssandbox.a170427nw.Main2Activity">
 
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="가격보이기"
+        />
+
     <GridView
         android:horizontalSpacing="10dp"
         android:verticalSpacing="10dp"
@@ -14,7 +21,7 @@
         android:id="@+id/grid"
         android:numColumns="2"
         android:layout_width="match_parent"
-        android:layout_height="450dp"></GridView>
+        android:layout_height="380dp"></GridView>
 
     <kr.blogspot.httpcarelesssandbox.a170427nw.Addfruit
         android:id="@+id/add"
