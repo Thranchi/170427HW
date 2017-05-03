@@ -18,17 +18,18 @@ public class Addfruit extends LinearLayout implements View.OnClickListener{
     EditText et, et2;
     ImageView img;
     Button b_next, b_add;
-
+    String mname="",mcost="";
+    edit edit=new edit();
 
     public Addfruit(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);
+        et=(EditText)findViewById(R.id.f_name);
+        et2=(EditText)findViewById(R.id.f_cost);
     }
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.fruitadd, this);
-        et=(EditText)findViewById(R.id.f_name);
-        et2=(EditText)findViewById(R.id.f_cost);
         b_add=(Button)findViewById(R.id.b_add);
         b_next=(Button)findViewById(R.id.b_next);
         img=(ImageView)findViewById(R.id.image1);
@@ -53,12 +54,9 @@ public class Addfruit extends LinearLayout implements View.OnClickListener{
         }
     }
 
-    public void namesender(String name) {
-        this.et.setText(name);
-    }
-
-    public void costsender(String cost) {
-        this.et2.setText(cost);
+    public void setedit(){
+        et.setText(edit.getName());
+        et2.setText(edit.getCost());
     }
 
     interface OnAddListener{

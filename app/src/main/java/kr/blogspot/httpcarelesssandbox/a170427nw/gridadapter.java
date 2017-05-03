@@ -24,7 +24,8 @@ public class gridadapter extends BaseAdapter {
     ArrayList<fruit> fruit;
     Context context;
     boolean costable=false;
-
+    edit edit=new edit();
+    Addfruit a;
 
     public gridadapter(ArrayList<fruit> fruit, Context context){
         this.fruit=fruit;
@@ -71,9 +72,10 @@ public class gridadapter extends BaseAdapter {
 
         name.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                String name=fruit.get(position).name;
-                String cost=fruit.get(position).cost;
+            public void onClick(View v){
+                Main2Activity m=new Main2Activity();
+                m.seteditname(fruit.get(position).name);
+                m.seteditcost(fruit.get(position).cost);
             }
         });
 

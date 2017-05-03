@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.GridView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ public class Main2Activity extends AppCompatActivity {
     Addfruit addfruit;
     CheckBox checkbox;
     static boolean costable=false;
+    TextView name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,7 @@ public class Main2Activity extends AppCompatActivity {
 
         checkbox=(CheckBox)findViewById(R.id.checkBox);
         gridView=(GridView)findViewById(R.id.grid);
+
         fruitbag.add(new fruit("아보카도","1",imglist[0]));
         fruitbag.add(new fruit("바나나","1",imglist[1]));
         fruitbag.add(new fruit("체리","1",imglist[2]));
@@ -49,7 +52,7 @@ public class Main2Activity extends AppCompatActivity {
             }
         });
 
-            addfruit=(Addfruit)findViewById(R.id.add);
+        addfruit=(Addfruit)findViewById(R.id.add);
         addfruit.setOnAddListener(new Addfruit.OnAddListener() {
             @Override
             public void onAdd(String name, String cost, int imageno){
@@ -57,9 +60,12 @@ public class Main2Activity extends AppCompatActivity {
                 gridadapter.addFruit(new fruit(name, cost, imageno));
                 gridadapter.refresh();
                     }
-
-
-
         });
+    }
+    public void seteditname(String name){
+        addfruit.et.setText(name);
+    }
+    public void seteditcost(String cost){
+        addfruit.et2.setText(cost);
     }
 }
